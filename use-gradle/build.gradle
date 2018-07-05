@@ -1,0 +1,28 @@
+task("sayHello"){
+	group = "Gradle lab"
+	description = "Says 'Hello'"
+	dependsOn = ["printTime"]
+	doLast {
+		println "Hello!"
+	}
+}
+
+task("sayGoodbye"){
+	group = "Gradle lab"
+	description = "Says 'Goodbye'"
+	dependsOn = ["printTime"]
+	mustRunAfter = ["sayHello"]
+
+	doLast {
+		println "Goodbye!"
+	}
+}
+
+task("printTime"){
+	group = "Gradle lab"
+	description = "Prints the current time"
+
+	doLast{
+		println new Date()
+	}
+}
