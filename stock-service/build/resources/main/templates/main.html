@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Quote aggregation</title>
+</head>
+<body>
+   <h3>Daily Info</h3>
+       <p th:text="'Max price: '+ ${daily.max}" />
+       <p th:text="'Min price: '+ ${daily.min}" />
+        <p th:text="'Total volume traded: ' + ${daily.volume}" />
+        <p th:text="'Closing price: ' + ${closing}"/>
+
+    <h3>Monthly Info</h3>
+        <p th:text="'Max price: ' + ${monthly.max}"/>
+       <p th:text="'Min price: '+ ${monthly.min}" />
+       <p th:text="'Total volume traded: ' + ${monthly.volume}" />
+       <p th:text="'Closing price: ' + ${closingMonthly}"/>
+</body>
+</html>

@@ -1,6 +1,7 @@
 package io.pivotal.stockservice;
 
 
+//Quote info is the string version of QuoteRecord, and will be used for json
 public class QuoteInfo {
 
     public final String id;
