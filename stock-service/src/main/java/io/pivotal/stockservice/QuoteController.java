@@ -4,10 +4,8 @@ package io.pivotal.stockservice;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.web.WebMvcProperties;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import java.net.URL;
@@ -48,17 +46,6 @@ public class QuoteController {
     @PostMapping("/load")
     public @ResponseBody
     ResponseEntity<String> load() throws Exception {
-
-        /*
-        //creates data.txt to save data to
-        File file = new File("src/main/resources/data.txt");
-        if(file.createNewFile()){
-            //file was created, need to read from URL
-            URLReader.read(new URL("https://bootcamp-training-files.cfapps.io/week2/week2-stocks.json"));
-        } else {
-            //file exists, no need to read from URL
-            System.out.println("File already exists");
-        }*/
 
         List<QuoteRecord> quotes;
         try{
@@ -103,12 +90,9 @@ public class QuoteController {
 
 
             return new ModelAndView("main", model);
-            //return "Max price: " + resp[0] + " Min price: " + resp[1] + " Total volume: " + resp[2] + "\nClosing price for " + date + " " + closingResp + "<br></br>"
-                   // + "Max price (monthly): " + monthResp[0] + " Min price (monthly): " + monthResp[1] + " Total volume(monthly): " + monthResp[2];
 
         } catch (Exception e) {
             return new ModelAndView("error", model);
-            //return "No stock price data for " + symbol + " on " + date + ".";
         }
     }
 }
